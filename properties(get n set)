@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace propertiees
+{
+    internal class Student
+    {
+        private int _id;
+        private string _name;
+        private int _passingmark=35;
+
+        public int Id
+        {
+            set
+            {
+                if (value < 0)
+                    throw new Exception("id can't be negative");
+                else
+                    this._id = value;
+            }
+            get
+            {
+                return this._id;    
+            }
+        }
+
+        public String name
+        {
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("name can't be null");
+                }
+                    
+                else
+                    this._name = value;
+            }
+            get
+            {
+                return this._name;
+            }
+        }
+        public int Passingmark
+        {
+            get
+            { 
+                return this._passingmark; 
+            }
+        }
+        static void Main(string[] args)
+        {
+            Student obj = new Student();
+            obj.Id = 1;
+            obj.name = "raj";
+            obj._passingmark = 99;
+
+            Console.WriteLine(obj._id);
+            Console.WriteLine(obj._name);
+            Console.WriteLine(obj._passingmark);
+        }
+    }
+}
